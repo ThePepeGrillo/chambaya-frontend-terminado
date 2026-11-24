@@ -1,0 +1,108 @@
+/* Estilos base: colores, tipografía y estructura general. Se diseña primero para celular. */
+:root {
+  /* Paleta inspirada en los portales de empleo: azul marino de base y naranja para acciones destacadas */
+  --azul-marino: #0a3a8c;
+  --azul: #1558c0;
+  --azul-oscuro: #072c6c;
+  --azul-suave: #e8f0fc;
+  --naranja: #c94f06;
+  --naranja-oscuro: #a94105;
+  --naranja-suave: #fdeee3;
+
+  --fondo: #f4f6fa;
+  --superficie: #ffffff;
+  --texto: #1c2430;
+  --texto-suave: #5a6677;
+  --borde: #dde3ee;
+  --exito: #14532d;
+  --exito-fondo: #dcfce7;
+  --alerta: #7a4a00;
+  --alerta-fondo: #fff1cc;
+  --error: #b3261e;
+  --error-fondo: #fdecea;
+
+  --radio: 14px;
+  --sombra: 0 1px 3px rgba(20, 30, 50, 0.1);
+  --sombra-fuerte: 0 6px 20px rgba(10, 58, 140, 0.16);
+  --ancho-max: 1180px;
+
+  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fondo);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 0.75rem;
+}
+
+a {
+  color: var(--azul);
+}
+
+:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 2px;
+}
+
+/* Texto solo para lectores de pantalla (el campo tiene etiqueta aunque no se vea) */
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+
+@media (min-width: 640px) {
+  .contenedor {
+    padding: 1.75rem 1.5rem 3rem;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+}
