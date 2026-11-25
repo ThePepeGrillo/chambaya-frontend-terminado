@@ -1,19 +1,19 @@
-/* Estilos base: colores, tipografía y estructura general. Se diseña primero para celular. */
+/* ChambaYa: identidad juvenil, cercana y moderna. Diseño mobile-first. */
 :root {
-  /* Paleta inspirada en los portales de empleo: azul marino de base y naranja para acciones destacadas */
-  --azul-marino: #0a3a8c;
-  --azul: #1558c0;
-  --azul-oscuro: #072c6c;
-  --azul-suave: #e8f0fc;
-  --naranja: #c94f06;
-  --naranja-oscuro: #a94105;
-  --naranja-suave: #fdeee3;
+  /* Paleta ChambaYa: morado + naranja */
+  --azul-marino: #241B35;
+  --azul: #6D4AFF;
+  --azul-oscuro: #5535D5;
+  --azul-suave: #F0ECFF;
+  --naranja: #FF9F43;
+  --naranja-oscuro: #E98222;
+  --naranja-suave: #FFF0DF;
 
-  --fondo: #f4f6fa;
-  --superficie: #ffffff;
-  --texto: #1c2430;
-  --texto-suave: #5a6677;
-  --borde: #dde3ee;
+  --fondo: #FFF9F2;
+  --superficie: #FFFFFF;
+  --texto: #241B35;
+  --texto-suave: #71677F;
+  --borde: #E8DFF3;
   --exito: #14532d;
   --exito-fondo: #dcfce7;
   --alerta: #7a4a00;
@@ -23,10 +23,10 @@
 
   --radio: 14px;
   --sombra: 0 1px 3px rgba(20, 30, 50, 0.1);
-  --sombra-fuerte: 0 6px 20px rgba(10, 58, 140, 0.16);
+  --sombra-fuerte: 0 8px 28px rgba(77, 49, 143, 0.15);
   --ancho-max: 1180px;
 
-  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
   color: var(--texto);
   line-height: 1.5;
 }
@@ -106,3 +106,29 @@ a {
     font-size: 1.9rem;
   }
 }
+
+
+/* Tema oscuro: se activa desde el selector de apariencia de la barra superior. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fondo: #191326;
+  --superficie: #241B35;
+  --texto: #FFF9F2;
+  --texto-suave: #C5B9D5;
+  --borde: #44365A;
+  --azul-suave: #382A56;
+  --naranja-suave: #4A3021;
+  --exito-fondo: #183D30;
+  --alerta-fondo: #49391D;
+  --error-fondo: #4A252B;
+  --sombra: 0 2px 8px rgba(0, 0, 0, 0.22);
+  --sombra-fuerte: 0 8px 28px rgba(0, 0, 0, 0.32);
+}
+
+:root[data-theme="dark"] body {
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+:root[data-theme="dark"] a { color: #B9A8FF; }
+:root[data-theme="dark"] :focus-visible { outline-color: #FFB66D; }

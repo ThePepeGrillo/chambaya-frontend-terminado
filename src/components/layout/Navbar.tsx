@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { Button } from "../ui/Button";
@@ -14,11 +15,38 @@ const ENLACES = {
 export function Navbar() {
   const { usuario, cerrarSesion } = useAuth();
   const ubicacion = useLocation();
+  const [tema, setTema] = useState<"light" | "dark">(() => {
+    const guardado = localStorage.getItem("chambaya-tema");
+    return guardado === "dark" ? "dark" : "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = tema;
+    localStorage.setItem("chambaya-tema", tema);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      "content",
+      tema === "dark" ? "#191326" : "#FFF9F2",
+    );
+  }, [tema]);
+
+  function cambiarTema() {
+    setTema((actual) => actual === "light" ? "dark" : "light");
+  }
 
   return (
     <header className="navbar">
       <div className="navbar__contenido">
         <Logo to="/panel" />
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={cambiarTema}
+          aria-label={tema === "light" ? "Activar modo oscuro" : "Activar modo claro"}
+          title={tema === "light" ? "Activar modo oscuro" : "Activar modo claro"}
+        >
+          <span className="theme-toggle__icon" aria-hidden="true">{tema === "light" ? "☾" : "☀"}</span>
+          <span className="theme-toggle__texto">{tema === "light" ? "Modo oscuro" : "Modo claro"}</span>
+        </button>
         {usuario && (
           <div className="navbar__usuario">
             <span className="navbar__nombre">{usuario.nombre}</span>
